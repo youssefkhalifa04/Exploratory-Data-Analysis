@@ -39,7 +39,7 @@ Exploratory-Data-Analysis/
 
 ### K-Means Clustering of Temperatures
 
-![Clustering Scatter Plot](assets/clustering.png)
+![Clustering Scatter Plot](assets/kmeans.png)
 
 ## 📦 Dependencies
 
