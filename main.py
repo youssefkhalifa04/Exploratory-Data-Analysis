@@ -76,7 +76,7 @@ plt.show()
 
 
 
-df['Jour'] = (df(['Date']) - df(['Date']).min()).dt.days
+df['Jour'] = (df['Date'] - df(['Date']).min()).dt.days
 
 x = df['Jour' , 'Temperature']
 km = kmeans.KMeans( n_clusters=3, random_state =42, n_init=10)
