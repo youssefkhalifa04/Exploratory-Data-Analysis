@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-
+import seaborn as sns
 np.random.seed(42)
 
 villes = ["Paris", "Lyon", "Marseille", "Toulouse", "Bordeaux"]
@@ -44,3 +44,25 @@ df_janvier = df[mask_janvier]
 
 print("\nDonnées pour janvier 2023 :")
 print(df_janvier.head())
+
+
+print(df["Ville"].value_counts())
+
+
+df["Mois"] = df["Date"].dt.to_period("M")
+
+
+moyenne_par_mois = df.groupby("Mois")["Temperature"].mean()
+
+print("\nTempérature moyenne par mois :")
+print(moyenne_par_mois)
+
+
+
+
+plt.figure(figsize = (12,6))
+sns.lineplot(data=df, x="Date", y="Temperature", hue="Ville" , marker="o")
+plt.title("Evolution des tempratures moyennes  par ville")
+plt.xticks(rotation=45)
+plt.show()
+
