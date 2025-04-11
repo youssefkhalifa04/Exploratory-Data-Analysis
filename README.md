@@ -31,11 +31,11 @@ Exploratory-Data-Analysis/
 
 ### Temperature Trends by City
 
-![Line Plot of Temperature Trends](assets/lineplot.png)
+![Line Plot of Temperature Trends](assets/graph.png)
 
 ### Distribution of Data Entries per City
 
-![Pie Chart of City Distribution](assets/piechart.png)
+![Pie Chart of City Distribution](assets/pie.png)
 
 ### K-Means Clustering of Temperatures
 
