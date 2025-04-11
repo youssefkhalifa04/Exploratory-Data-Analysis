@@ -83,5 +83,5 @@ Exploratory-Data-Analysis/
 
 ## 📬 Contact
 
-For any questions or suggestions, feel free to contact [Youssef Khalifa](khalifayoussef297@gmail.com).
+For any questions or suggestions, feel free to contact me khalifayoussef297@gmail.com .
 
