@@ -2,6 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+import sklearn.cluster as kmeans
+
 np.random.seed(42)
 
 villes = ["Paris", "Lyon", "Marseille", "Toulouse", "Bordeaux"]
@@ -66,3 +68,28 @@ plt.title("Evolution des tempratures moyennes  par ville")
 plt.xticks(rotation=45)
 plt.show()
 
+ville_counts = df['Ville'].value_counts()
+plt.figure(figsize = (8,8))
+plt.pie(ville_counts , labels = ville_counts.index , autopct="%1.1f%%" , startangle= 140)
+plt.title("Reparation des enregistrement par ville")
+plt.show()
+
+
+
+df['Jour'] = (df(['Date']) - df(['Date']).min()).dt.days
+
+x = df['Jour' , 'Temperature']
+km = kmeans.KMeans( n_clusters=3, random_state =42, n_init=10)
+df['Cluster'] = km.fit_predict(x)
+plt.figure(figsize = (10,6))
+sns.scatterplot(data = df , x = "Jour" , y = "Temperature", hue = "Cluster" , palette = "viridis" , s=100)
+plt.title("clustering des temperatures par jours K-MEANS")
+plt.xlabel("Jour ecoulé")
+plt.ylabel("Temperature")
+plt.legend(title= "cluster")
+plt.show()
+
+future_day = np.array([120])
+predicted_cluster = km.predict(np.hstack((future_day, df['Temperature'].mean())))[0]
+predicted_temp = df[df['Cluster'] == predicted_cluster]['Temperature'].mean()
+print(f"Temp estimé pour le jour 120 : {predicted_temp:.2f}°C")
